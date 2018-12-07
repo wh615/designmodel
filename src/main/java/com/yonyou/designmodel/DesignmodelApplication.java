@@ -1,3 +1,4 @@
+/*
 package com.yonyou.designmodel;
 
 import org.springframework.boot.SpringApplication;
@@ -10,3 +11,4 @@ public class DesignmodelApplication {
 		SpringApplication.run(DesignmodelApplication.class, args);
 	}
 }
+*/

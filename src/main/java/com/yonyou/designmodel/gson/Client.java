@@ -1,10 +1,14 @@
 package com.yonyou.designmodel.gson;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.sun.deploy.security.SessionCertStore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description:
@@ -44,5 +48,26 @@ public class Client {
         System.out.println(user1.getAddress()+user1.getName());
         System.out.println(listjson);
         System.out.println(retList.get(0).toString());
+
+
+
+        //创建GSON第二种方式
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("001","zhangsan");
+        map.put("002","lisi");
+        map.put("003","wangwu");
+        GsonBuilder builder=new GsonBuilder();
+        String toJson = builder.create().toJson(map);
+
+        Map<String, List<User>> map1 = new HashMap<String, List<User>>();
+        map1.put("001",usersList);
+        String toJson1 = builder.create().toJson(map1);
+        Map<List<User>, String> resultMap = gson.fromJson(toJson1,new TypeToken<Map<String,List<User>>>() {}.getType());
+        System.out.println(toJson);
+        System.out.println(toJson1);
+        System.out.println(resultMap.toString());
+
+
+
     }
 }
